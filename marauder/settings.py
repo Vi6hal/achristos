@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',
     'rest_framework',
+    'django_filters',
+    # 'cacheops',
     'corsheaders',
     'djoser',
     'accounts',
@@ -60,10 +62,10 @@ AUTHENTICATION_BACKENDS = [
 DATABASES = {}
 DATABASES['default'] = dj_database_url.parse(config('DATABASE_URL'),conn_max_age=600, ssl_require=True)
 
-# CACHEOPS_REDIS = config('REDIS_URL',False)
-# CACHEOPS = {
-#      '*.*': {'timeout': 60*60},
-# }
+CACHEOPS_REDIS = config('REDIS_URL',False)
+CACHEOPS = {
+     '*.*': {'timeout': 60*60},
+}
 
 TEMPLATES = [
     {
