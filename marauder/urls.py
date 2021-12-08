@@ -23,6 +23,8 @@ swaggerd = [
 
 urlpatterns = [
     path('', include("djoser.urls.base")),
+    path('', include("accounts.urls")),
+
     path('manage/', admin.site.urls),
     path('', include("djoser.urls.jwt")),
 ]
