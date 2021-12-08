@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'django_filters',
-    # 'cacheops',
+    'cacheops',
     'corsheaders',
     'djoser',
     'accounts',
