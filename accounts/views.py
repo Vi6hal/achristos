@@ -19,4 +19,6 @@ class RandomDataView(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         print("called url")
+        from .tasks import add
+        add.delay()
         return super().list(request, *args, **kwargs)

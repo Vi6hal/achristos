@@ -15,10 +15,10 @@ app.autodiscover_tasks()
 # def debug_task(self):
 #     print('Request: {0!r}'.format(self.request))
 
-@app.on_after_configure.connect
-def setup_periodic_tasks(sender, **kwargs):
-    sender.add_periodic_task(10.0, test_periodic.s('hello \n\n\n'), name='add every 10')
+# @app.on_after_configure.connect
+# def setup_periodic_tasks(sender, **kwargs):
+#     sender.add_periodic_task(10.0, test_periodic.s('hello \n\n\n'), name='add every 10')
 
-@app.task
-def test_periodic(arg):
-    print(arg)
+# @app.task
+# def test_periodic(arg):
+#     print(arg)

@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'accounts',
-    'django_celery_beat'
+    # 'django_celery_beat'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +56,7 @@ AUTHENTICATION_BACKENDS = [
 # }
 DATABASES={}
 DATABASES['default'] = dj_database_url.parse(config('DATABASE_URL'),conn_max_age=600, ssl_require=True)
+del DATABASES['default']['OPTIONS']['sslmode']
 
 TEMPLATES = [
     {
