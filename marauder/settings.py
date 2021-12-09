@@ -6,16 +6,11 @@ from decouple import config
 import os
 import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = config('SECRET_KEY')
-
 DEBUG = config('DEBUG', default=True, cast=bool)
-
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*')
-
 # TODO CHANGE THIS
 DOMAIN = 'DOMAIN_HERE'
-
 # TODO CHANGE THIS
 SITE_NAME = 'SITE_NAME_HERE'
 
@@ -29,10 +24,10 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'django_filters',
-    'cacheops',
     'corsheaders',
     'djoser',
     'accounts',
+    'django_celery_beat'
 ]
 
 MIDDLEWARE = [
@@ -59,13 +54,8 @@ AUTHENTICATION_BACKENDS = [
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {}
+DATABASES={}
 DATABASES['default'] = dj_database_url.parse(config('DATABASE_URL'),conn_max_age=600, ssl_require=True)
-
-CACHEOPS_REDIS = config('REDIS_URL',False)
-CACHEOPS = {
-     '*.*': {'timeout': 60*60},
-}
 
 TEMPLATES = [
     {
@@ -175,3 +165,14 @@ EMAIL_HOST_USER = 'f8f96601dd0ce3'
 EMAIL_HOST_PASSWORD = '6e5db772aaf2c8'
 EMAIL_PORT = '2525'
 
+
+BROKER_URL = config('REDIS_URL',False)
+CELERY_RESULT_BACKEND = config('REDIS_URL',False)
+BROKER_POOL_LIMIT = 1
+BROKER_CONNECTION_TIMEOUT = 10
+CELERYD_CONCURRENCY = 4
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Canada/Eastern'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
