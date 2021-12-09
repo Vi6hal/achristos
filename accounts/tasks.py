@@ -5,5 +5,5 @@ import requests
 @shared_task
 def add():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n running task ~~~~~~~~~~~~~~~~~~~~~~~~~")
-    requests.get("https://sobercheck.herokuapp.com/data")
+    # requests.get("https://sobercheck.herokuapp.com/data")
     return
