@@ -1,15 +1,10 @@
 from django.contrib import admin
-from django.contrib.auth.models import User
-from .models import User
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, UsernameField
 from django.utils.translation import ugettext_lazy as _
-from accounts.models import User,UserProfile
+from accounts.models import User
 
 
-class UserProfileAdminInline(admin.StackedInline):
-    model = UserProfile
-    fields = ("address",)
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -51,4 +46,3 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm
     list_display = ('email', 'is_staff', 'is_active', )
-    inlines = [UserProfileAdminInline]

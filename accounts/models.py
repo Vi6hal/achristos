@@ -76,19 +76,3 @@ class User(PermissionsMixin, AbstractBaseUser,AbstractModel):
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""
         send_mail(subject, message, from_email, [self.email], **kwargs)
-
-
-class UserProfile(models.Model):
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
-    address = models.CharField(_("Permanant Address"), max_length=255, blank=True, null=True)
-
-
-class RandomData(models.Model):
-
-    address = models.CharField(_("Address"), max_length=255, blank=True, null=True)
-    first_name = models.CharField(_("First Name"), max_length=255, blank=True, null=True)
-    last_name = models.CharField(_("Last Name"), max_length=255, blank=True, null=True)
-    phone_number = models.CharField(_("Phone Number"), max_length=255, blank=True, null=True)
-
-

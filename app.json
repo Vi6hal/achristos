@@ -1,8 +1,6 @@
 {
 	"env": {
 		"ENV": "production",
-		"DJANGO_SUPERUSER_PASSWORD": "admin",
-		"DJANGO_SUPERUSER_EMAIL":"admin@example.com",
 		"SECRET_KEY": {
 			"generator": "secret"
 		},
@@ -11,6 +9,9 @@
 	"addons": [
 		{
 			"plan": "heroku-postgresql:hobby-dev"
+		},
+		{
+			"plan": "scheduler:standard"
 		},
 		{
 			"plan": "heroku-redis:hobby-dev"
