@@ -13,3 +13,5 @@ django-currentuser==0.5.3
 celery
 django-celery-beat
 redis
+aiohttp
+asyncio
