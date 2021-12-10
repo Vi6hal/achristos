@@ -17,10 +17,11 @@ schema_view = get_schema_view(
 )
 
 swaggerd = [
-    path('', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('apispec', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
 urlpatterns = [
+    path('', include("registery.urls")),
     path('auth/', include("djoser.urls.base")),
     path('manage/', admin.site.urls),
     path('auth/', include("djoser.urls.jwt")),
