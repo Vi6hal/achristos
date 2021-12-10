@@ -7,9 +7,9 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-# Marauder
+# Achristos
 
-Marauder is a Python - Django application for basic user management setup using django-rest and JWT + Cognito.
+Achristos is a Python - Django application to keep your heroku apps from snoozing, it is inspired from [kaffene](https://kaffeine.herokuapp.com/), but built with python and Django.
 ### <a href="https://murmuring-chamber-51612.herokuapp.com/" target="_blank">Demo</a>
 
 
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 python3 manage.py migrate
 ```
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/n0tNoah/djangobaseapp)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/n0tNoah/achristos)
 
 
 ## Usage
@@ -36,15 +36,15 @@ python3 manage.py runserver
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/n0tNoah/djangobaseapp.svg?style=for-the-badge
-[contributors-url]: https://github.com/n0tNoah/djangobaseapp/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/n0tNoah/djangobaseapp.svg?style=for-the-badge
-[forks-url]: https://github.com/n0tNoah/djangobaseapp/network/members
-[stars-shield]: https://img.shields.io/github/stars/n0tNoah/djangobaseapp.svg?style=for-the-badge
-[stars-url]: https://github.com/n0tNoah/djangobaseapp/stargazers
-[issues-shield]: https://img.shields.io/github/issues/n0tNoah/djangobaseapp.svg?style=for-the-badge
-[issues-url]: https://github.com/n0tNoah/djangobaseapp/issues
-[license-shield]: https://img.shields.io/github/license/n0tNoah/djangobaseapp?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/n0tNoah/achristos.svg?style=for-the-badge
+[contributors-url]: https://github.com/n0tNoah/achristos/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/n0tNoah/achristos.svg?style=for-the-badge
+[forks-url]: https://github.com/n0tNoah/achristos/network/members
+[stars-shield]: https://img.shields.io/github/stars/n0tNoah/achristos.svg?style=for-the-badge
+[stars-url]: https://github.com/n0tNoah/achristos/stargazers
+[issues-shield]: https://img.shields.io/github/issues/n0tNoah/achristos.svg?style=for-the-badge
+[issues-url]: https://github.com/n0tNoah/achristos/issues
+[license-shield]: https://img.shields.io/github/license/n0tNoah/achristos?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/keshav-pachpinde-044531211/
-[license-url]: https://github.com/n0tNoah/djangobaseapp/blob/main/LICENSE.txt
+[license-url]: https://github.com/n0tNoah/achristos/blob/master/LICENSE.txt
