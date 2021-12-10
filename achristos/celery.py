@@ -4,9 +4,9 @@ from celery import Celery
 from celery.schedules import crontab
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE','pacemaker.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','achristos.settings')
 
-app = Celery('pacemaker')
+app = Celery('achristos')
 
 app.config_from_object('django.conf:settings')
 

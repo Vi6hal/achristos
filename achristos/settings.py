@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*')
-DOMAIN = 'Pacemaker'
+DOMAIN = 'achristos.herokuapp.com'
 SITE_NAME = 'Pacemaker'
 
 INSTALLED_APPS = [
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
     'accounts',
+    'registery'
     # 'django_celery_beat'
 ]
 
@@ -81,9 +82,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-WSGI_APPLICATION = 'pacemaker.wsgi.application'
+WSGI_APPLICATION = 'achristos.wsgi.application'
 
-ROOT_URLCONF = 'pacemaker.urls'
+ROOT_URLCONF = 'achristos.urls'
 
 AUTH_USER_MODEL = 'accounts.User'
 
