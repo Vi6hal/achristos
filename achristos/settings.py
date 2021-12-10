@@ -20,11 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',
     'rest_framework',
-    'corsheaders',
-    'djoser',
     'accounts',
     'registery'
-    # 'django_celery_beat'
 ]
 
 MIDDLEWARE = [
@@ -91,47 +88,13 @@ AUTH_USER_MODEL = 'accounts.User'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
-
 CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = (
-#   'http://localhost:8000',
-#   'http://localhost:3000',
-# )
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        # added simple jwt authclass for jwt token
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-}
-
-
-DJOSER = {
-    "HIDE_USERS":True,
-    "LOGIN_FEILD": "EMAIL",
-    'PASSWORD_RESET_CONFIRM_URL': "password/reset/confirm/{uid}/{token}",
-    'ACTIVATION_URL': 'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    "EMAIL": {
-        'password_reset': 'accounts.email.PasswordResetEmail',
-    },
-    "PERMISSIONS": {
-        'username_reset': ['rest_framework.permissions.IsAdminUser'],
-        'user_list': ['rest_framework.permissions.IsAdminUser'],
-        'user_create': ['rest_framework.permissions.IsAdminUser'],
-        'user_delete': ['rest_framework.permissions.IsAdminUser'],
-    },
-    "SERIALIZERS": {
-        'current_user': 'accounts.serializers.UserSerializer',
-    }
-
 }
 
 LANGUAGE_CODE = 'en-us'
@@ -141,14 +104,3 @@ USE_L10N = True
 USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-BROKER_URL = config('REDIS_URL',False)
-CELERY_RESULT_BACKEND = config('REDIS_URL',False)
-BROKER_POOL_LIMIT = 1
-BROKER_CONNECTION_TIMEOUT = 10
-CELERYD_CONCURRENCY = 4
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Canada/Eastern'
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
