@@ -1,28 +1,27 @@
-import asyncio,time,datetime,aiohttp,os
+import asyncio,time,datetime,aiohttp
 from aiohttp.client import ClientSession
+import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','achristos.settings')
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 from django.utils.timezone import make_aware
 from registery.models import AppRegistery
 
-
-async def download_link(url:str,session:ClientSession):
+async def ping(url:str,session:ClientSession):
     async with session.get(url) as response:
         result = await response.text()
         print(f'Read {len(result)} from {url}')
 
 async def ping_all(urls:list):
-    my_conn = aiohttp.TCPConnector(limit=100)
+    my_conn = aiohttp.TCPConnector(limit=10)
     async with aiohttp.ClientSession(connector=my_conn) as session:
         tasks = []
         for url in urls:
-            task = asyncio.ensure_future(download_link(url=url,session=session))
+            task = asyncio.ensure_future(ping(url=url,session=session))
             tasks.append(task)
-        await asyncio.gather(*tasks,return_exceptions=True) # the await must be nest inside of the session
+    await asyncio.gather(*tasks,return_exceptions=True) # the await must be nest inside of the session
 
-# links = list(AppRegistery.objects.filter(bedtime=False).values_list('url',flat=True))
-links = ["https://github.com/ipinfo","https://github.com/ipinfo"]*500
+links = list(AppRegistery.objects.filter(bedtime=False).values_list('url',flat=True))
 start = time.time()
 asyncio.run(ping_all(links))
 end = time.time()

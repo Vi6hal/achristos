@@ -12,9 +12,6 @@
 		},
 		{
 			"plan": "scheduler"
-		},
-		{
-			"plan": "heroku-redis:hobby-dev"
 		}
 	],
 	"buildpacks": [
