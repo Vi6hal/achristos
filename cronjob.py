@@ -21,8 +21,7 @@ async def ping_all(urls:list):
             tasks.append(task)
         await asyncio.gather(*tasks,return_exceptions=True) # the await must be nest inside of the session
 
-# links = list(AppRegistery.objects.filter(bedtime=False).values_list('url',flat=True))
-links = ["https://github.com/ipinfo","https://github.com/ipinfo"]*500
+links = list(AppRegistery.objects.filter(bedtime=False).values_list('url',flat=True))
 start = time.time()
 asyncio.run(ping_all(links))
 end = time.time()
