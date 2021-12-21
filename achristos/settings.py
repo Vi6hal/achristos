@@ -13,8 +13,8 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*')
 SITE_NAME,DOMAIN = 'Achristos','achristos.herokuapp.com'
 SESSION_COOKIE_SECURE=True
 DATABASES={}
-DATABASES(default'] = dj_database_url.parse(config('DATABASE_URL'),conn_max_age=600, ssl_require=True)
-del DATABASES['default']['OPTIONS']['sslmode'])
+DATABASES['default'] = dj_database_url.parse(config('DATABASE_URL'),conn_max_age=600, ssl_require=True)
+del DATABASES['default']['OPTIONS']['sslmode']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
