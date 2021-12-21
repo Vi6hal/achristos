@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-
+from django.http import HttpResponse
 schema_view = get_schema_view(
     openapi.Info(
         title="Pacemaker APIs",
@@ -23,6 +23,7 @@ swaggerd = [
 urlpatterns = [
     path('', include("registery.urls")),
     path('manage/', admin.site.urls),
+    path('loaderio-35012945d017d7625d36dcadd9a62290/',HttpResponse('loaderio-35012945d017d7625d36dcadd9a62290'))
 ]
 
 urlpatterns = urlpatterns + swaggerd
