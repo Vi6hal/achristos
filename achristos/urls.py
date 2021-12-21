@@ -23,7 +23,7 @@ swaggerd = [
 urlpatterns = [
     path('', include("registery.urls")),
     path('manage/', admin.site.urls),
-    path('loaderio-35012945d017d7625d36dcadd9a62290/',HttpResponse('loaderio-35012945d017d7625d36dcadd9a62290'))
+    path('loaderio-35012945d017d7625d36dcadd9a62290/',lambda request:HttpResponse('loaderio-35012945d017d7625d36dcadd9a62290',content_type="text/plain"))
 ]
 
 urlpatterns = urlpatterns + swaggerd
