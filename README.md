@@ -10,7 +10,7 @@
 # Achristos
 
 Achristos is a Python - Django application to keep your heroku apps from snoozing, it is inspired from [kaffene](https://kaffeine.herokuapp.com/), but built with python and Django.
-### <a href="https://murmuring-chamber-51612.herokuapp.com/" target="_blank">Demo</a>
+### <a href="https://achristos.herokuapp.com/" target="_blank">Demo</a>
 
 
 
